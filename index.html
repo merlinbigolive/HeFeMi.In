@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111713">
 <meta name="description" content="HeFeMi — premium in-hotel massage therapy. Private, professional appointments booked around your stay.">
-<title>HeFeMi | In-Hotel Massage Therapy</title>
+<title>HΞFΞMᎥ | Premium In-Hotel Massage Therapy</title>
 <style>
 :root{--bg:#101612;--panel:#18221c;--panel2:#202c24;--gold:#d8b879;--cream:#f3eee4;--muted:#b8b9ad;--line:#344238;--green:#a9b99e}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
@@ -22,59 +22,186 @@ form{background:#111a14;border:1px solid var(--line);padding:32px}.form-title{fo
 .hotel{padding:80px 0;text-align:center}.hotel p{color:var(--muted);max-width:650px;margin:14px auto}.hotel .eyebrow{margin-bottom:12px}
 footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{font-family:Georgia,serif;color:var(--cream);letter-spacing:.16em;font-size:17px;font-weight:400}
 @media(max-width:760px){.nav{height:70px}.navlinks{display:none}.hero{min-height:700px}.hero:after{right:-35%;opacity:.65}.hero-content{padding-top:85px}.section{padding:75px 0}.features{grid-template-columns:1fr}.booking-grid{grid-template-columns:1fr;gap:28px}.booking-copy{position:static}.two{grid-template-columns:1fr}form{padding:22px}.slots{grid-template-columns:1fr}.slot label{text-align:left;padding:12px 14px}.foot{flex-direction:column}}
+
+.hero{min-height:780px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;isolation:isolate;overflow:hidden;background:#071710}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,14,10,.76),rgba(3,14,10,.43),rgba(3,14,10,.76)),linear-gradient(0deg,rgba(3,14,10,.68),rgba(3,14,10,.16) 50%,rgba(3,14,10,.56));z-index:0}
+.hero:after{content:"";position:absolute;width:min(72vw,680px);height:min(72vw,680px);left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #d8b87945;border-radius:50%;box-shadow:0 0 100px #d8b87918,inset 0 0 90px #d8b87912;z-index:0;pointer-events:none}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.hero-shade{position:absolute;inset:0;background:rgba(4,17,11,.2);z-index:0;pointer-events:none}
+.hero-wrap{position:relative;z-index:2;display:flex;justify-content:center;width:100%}
+.hero-content{position:relative;z-index:2;padding:120px 20px 70px;max-width:850px;margin:0 auto;text-align:center}
+.hero-brand{font-family:Georgia,serif;font-size:clamp(42px,8vw,82px);line-height:1.1;letter-spacing:.16em;color:#f3e5c4;text-shadow:0 0 18px #d8b87965,0 0 42px #d8b87935;margin:0 auto 20px}
+.hero .eyebrow{letter-spacing:.3em;color:#e2c991}
+.hero h1{font-size:clamp(42px,6.5vw,76px);margin:18px auto;line-height:1.03}
+.hero p{max-width:620px;margin:0 auto;color:#f0eee5}
+.hero .actions{justify-content:center}
+.hero-note{margin-top:34px}
+@media(max-width:760px){.hero{min-height:760px}.hero-content{padding:110px 12px 60px}.hero-brand{letter-spacing:.1em}.hero:after{width:90vw;height:90vw}}
+\n
+.availability-panel{margin-top:18px;padding:18px;border:1px solid var(--line);background:#0c1711}
+.availability-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.availability-top strong{font:22px Georgia,serif;color:var(--gold)}
+.availability-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted)}
+.legend-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:#93b88a}
+.legend-dot.booked{background:#a66b63}.legend-dot.selected{background:var(--gold)}
+.slot-status{display:block;font-size:10px;margin-top:5px;letter-spacing:.06em;text-transform:uppercase}
+.slot.available{border-color:#789b70}.slot.available label{border-color:#789b70}
+.slot.booked label{opacity:.42;border-color:#8d625c;background:#2b1c19;color:#d8aaa1;cursor:not-allowed;text-decoration:line-through}
+.slot.booked label:after{content:"NOT AVAILABLE";display:block;color:#e3a79b;font-size:9px;margin-top:5px;letter-spacing:.08em}
+.slot.selected-slot label{border-color:var(--gold);background:#d8b87920;color:var(--gold)}
+.availability-help{font-size:11px;line-height:1.6;color:#aeb6a9;margin:12px 0 0}
+
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#">He<span>Fe</span>Mi</a><nav class="navlinks"><a href="#experience">Experience</a><a href="#booking">Book a Session</a><a href="#hotel">Hotel Guests</a></nav><a class="navcta" href="#booking">Reserve a Slot</a></div></header>
+<header><div class="wrap nav"><a class="brand" href="#">HΞFΞMᎥ</a><nav class="navlinks"><a href="#experience">Experience</a><a href="#booking">Book a Session</a><a href="#hotel">Hotel Guests</a></nav><a class="navcta" href="#booking">Reserve a Slot</a></div></header>
 <main>
-<section class="hero"><div class="wrap"><div class="hero-content"><div class="eyebrow">Private in-hotel massage therapy</div><h1>Unwind.<br><em>Restore.</em><br>Reconnect.</h1><p>A considered moment of calm, brought directly to your hotel room. Professional massage therapy, thoughtfully scheduled around your stay.</p><div class="actions"><a class="btn" href="#booking">Book Your Session</a><a class="btn outline" href="#experience">Discover HeFeMi</a></div><div class="hero-note">Available all seven days · Hotel guests only</div></div></div></section>
+<section class="hero">
+<video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
+<source src="hefemi-hero.mp4" type="video/mp4">
+</video>
+<div class="hero-shade"></div>
+<div class="wrap hero-wrap"><div class="hero-content">
+<div class="hero-brand">HΞFΞMᎥ</div>
+<div class="eyebrow">PREMIUM IN-HOTEL MASSAGE THERAPY</div>
+<h1>Unwind.<br><em>Restore.</em><br>Reconnect.</h1>
+<p>A considered moment of calm, brought directly to your hotel room. Professional massage therapy, thoughtfully scheduled around your stay.</p>
+<div class="actions"><a class="btn" href="#booking">Book Your Session</a><a class="btn outline" href="#experience">Discover HeFeMi</a></div>
+<div class="hero-note">Available all seven days · Hotel guests only</div>
+</div></div></section>
 <section class="section" id="experience"><div class="wrap"><div class="section-head"><div class="eyebrow">The HeFeMi experience</div><h2>Wellness, without<br>leaving your room.</h2><p>Enjoy a private, professional appointment in the comfort and convenience of your hotel. Every booking is handled with care, discretion and respect.</p></div><div class="features"><article class="feature"><div class="num">01</div><h3>Made for your stay</h3><p>Appointments are available exclusively for guests staying at a hotel.</p></article><article class="feature"><div class="num">02</div><h3>Professional care</h3><p>A calm, respectful service experience with clear communication before your appointment.</p></article><article class="feature"><div class="num">03</div><h3>Your time, your choice</h3><p>Choose a date and one of the limited daily appointment windows, seven days a week.</p></article></div></div></section>
-<section class="section booking" id="booking"><div class="wrap booking-grid"><div class="booking-copy"><div class="eyebrow">Appointments · 7 days a week</div><h2>Make room<br>for <em style="color:var(--gold)">relaxation.</em></h2><p>Choose your preferred date and available time. Share your hotel details so the team can confirm the appointment with you.</p><ul><li>10:00 AM – 2:00 PM</li><li>3:00 PM appointment</li><li>7:00 PM appointment</li><li>Hotel room service only</li></ul></div>
+<section class="section booking" id="booking"><div class="wrap booking-grid"><div class="booking-copy"><div class="eyebrow">Appointments · 7 days a week</div><h2>Make room<br>for <em style="color:var(--gold)">relaxation.</em></h2><p>Choose your preferred date and available time. Share your hotel details so the team can confirm the appointment with you.</p><ul><li>Multiple 1-hour and 2-hour sessions</li><li>3:00 PM – 7:00 PM (4 hours)</li><li>40-minute minimum travel buffer between appointments</li><li>Hotel room service only</li></ul></div>
 <form id="bookingForm">
-<h3 class="form-title">Request a booking</h3><p class="form-sub">Complete the details below. Your appointment is subject to confirmation.</p>
-<div class="two"><div class="field"><label for="guest">Full name</label><input id="guest" name="guest" autocomplete="name" placeholder="Your name" required></div><div class="field"><label for="phone">Mobile / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 ..." required></div></div>
+<h3 class="form-title">Request a booking</h3><p class="form-sub">For hotel guests in selected premium Delhi localities only.</p>
+<div class="two">
+<div class="field"><label for="guest">Full name</label><input id="guest" name="guest" autocomplete="name" placeholder="Your full name" required></div>
+<div class="field"><label for="gender">Gender</label><select id="gender" name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select></div>
+</div>
+<div class="two">
+<div class="field"><label for="phone">Mobile / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 ..." required></div>
 <div class="field"><label for="hotelName">Hotel name</label><input id="hotelName" name="hotel" placeholder="Name of your hotel" required></div>
-<div class="two"><div class="field"><label for="room">Room number</label><input id="room" name="room" placeholder="Room number" required></div><div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date" required></div></div>
-<div class="field"><label for="duration">Choose session duration</label><select id="duration" name="duration" required><option value="1 Hour" data-price="500">1 Hour — ₹500</option><option value="2 Hours" data-price="900">2 Hours — ₹900</option></select></div>
-<div class="field"><label>Session price</label><div id="priceDisplay" style="border:1px solid #8b9c7d;background:#253329;padding:14px;color:#e8d5aa;font-size:18px">₹500</div></div>
-<div class="field"><label>Choose a time</label><div class="slots">
-<div class="slot"><input type="radio" id="slot1" name="slot" value="10:00 AM – 2:00 PM" required><label for="slot1">10:00 AM – 2:00 PM<small>Daytime window</small></label></div>
-<div class="slot"><input type="radio" id="slot2" name="slot" value="3:00 PM"><label for="slot2">3:00 PM<small>Afternoon</small></label></div>
-<div class="slot"><input type="radio" id="slot3" name="slot" value="7:00 PM"><label for="slot3">7:00 PM<small>Evening</small></label></div>
+</div>
+<div class="two">
+<div class="field"><label for="room">Room number</label><input id="room" name="room" placeholder="Room number" required></div>
+<div class="field"><label for="location">Hotel locality (Delhi only)</label><select id="location" name="location" required>
+<option value="">Choose Delhi locality</option>
+<option>Vasant Vihar</option><option>Defence Colony</option><option>Greater Kailash I</option><option>Greater Kailash II</option><option>Hauz Khas</option><option>Panchsheel Park</option><option>Shanti Niketan</option><option>Jor Bagh</option><option>Chanakyapuri</option><option>Saket</option><option>Golf Links</option>
+</select></div>
+</div>
+<div class="field"><label for="date">Booking date</label><input id="date" name="date" type="date" required></div>
+<div class="field"><label>Choose an appointment slot</label>
+<div class="availability-panel">
+ <div class="availability-top"><strong id="availabilityDateTitle">Select a date to view slots</strong><span id="availabilityState" class="availability-legend">Availability status</span></div>
+ <div class="availability-legend"><span><i class="legend-dot"></i> Available</span><span><i class="legend-dot booked"></i> Not available</span><span><i class="legend-dot selected"></i> Selected</span></div>
+ <p class="availability-help">Choose a booking date. Slots already booked will appear as NOT AVAILABLE and cannot be selected. Live shared status activates when the Supabase booking backend is connected.</p>
+</div>
+<div class="slots">
+<div class="slot"><input type="radio" id="slot1" name="slot" value="10 AM – 11 AM" data-hours="1" data-price="500" required><label for="slot1">10 AM – 11 AM<small>1 hour · ₹500</small></label></div>
+<div class="slot"><input type="radio" id="slot2" name="slot" value="10 AM – 12 PM" data-hours="2" data-price="900"><label for="slot2">10 AM – 12 PM<small>2 hours · ₹900</small></label></div>
+<div class="slot"><input type="radio" id="slot3" name="slot" value="12 PM – 1 PM" data-hours="1" data-price="500"><label for="slot3">12 PM – 1 PM<small>1 hour · ₹500</small></label></div>
+<div class="slot"><input type="radio" id="slot4" name="slot" value="12 PM – 2 PM" data-hours="2" data-price="900"><label for="slot4">12 PM – 2 PM<small>2 hours · ₹900</small></label></div>
+<div class="slot"><input type="radio" id="slot5" name="slot" value="3 PM – 4 PM" data-hours="1" data-price="500"><label for="slot5">3 PM – 4 PM<small>1 hour · ₹500</small></label></div>
+<div class="slot"><input type="radio" id="slot6" name="slot" value="3 PM – 5 PM" data-hours="2" data-price="900"><label for="slot6">3 PM – 5 PM<small>2 hours · ₹900</small></label></div>
+<div class="slot"><input type="radio" id="slot7" name="slot" value="5 PM – 6 PM" data-hours="1" data-price="500"><label for="slot7">5 PM – 6 PM<small>1 hour · ₹500</small></label></div>
+<div class="slot"><input type="radio" id="slot8" name="slot" value="5 PM – 7 PM" data-hours="2" data-price="900"><label for="slot8">5 PM – 7 PM<small>2 hours · ₹900</small></label></div>
+<div class="slot"><input type="radio" id="slot9" name="slot" value="3 PM – 7 PM" data-hours="4" data-price="1800"><label for="slot9">3 PM – 7 PM<small>4 hours · ₹1,800</small></label></div>
 </div></div>
-<div class="field"><label for="notes">Anything we should know? (optional)</label><textarea id="notes" name="notes" rows="3" placeholder="Optional notes or preferred service"></textarea></div>
-<label class="check"><input type="checkbox" required><span>I confirm that I am a registered guest at the hotel provided and understand this is a booking request, not a confirmed appointment.</span></label>
-<button class="btn submit" type="submit">Send booking request</button><div class="fine">We’ll confirm availability before your appointment is finalised.</div><div class="notice" id="notice" role="status"></div>
+<div class="field"><label>Session price</label><div id="priceDisplay" style="border:1px solid #8b9c7d;background:#253329;padding:14px;color:#e8d5aa;font-size:18px">Select a slot to see price</div></div>
+<div class="field"><label for="notes">Anything we should know? (optional)</label><textarea id="notes" name="notes" rows="3" placeholder="Optional notes"></textarea></div>
+<label class="check"><input type="checkbox" required><span>I confirm that I am a registered guest at the hotel provided. I understand that appointments are available only in the listed Delhi localities.</span></label>
+<button class="btn submit" type="submit">Continue to booking request</button>
+<div class="fine">A selected time is not reserved until availability is checked and the booking is confirmed. Online payment and live slot locking require the booking backend to be connected.</div>
+<div class="notice" id="notice" role="status"></div>
 </form></div></section>
-<section class="hotel" id="hotel"><div class="wrap"><div class="eyebrow">An exclusive hotel guest service</div><h2 style="font:clamp(36px,5vw,54px) Georgia,serif;font-weight:400;margin:0">Your room. Your pause.</h2><p>HeFeMi currently serves hotel guests only. Please have your hotel name and room details ready when requesting an appointment.</p><a class="btn" href="#booking">Request Your Appointment</a></div></section>
+<section class="hotel" id="hotel"><div class="wrap"><div class="eyebrow">An exclusive hotel guest service</div><h2 style="font:clamp(36px,5vw,54px) Georgia,serif;font-weight:400;margin:0">Your room. Your pause.</h2><p>HeFeMi serves hotel guests only in selected premium Delhi localities. Bookings from Noida and other Delhi localities outside the listed service areas are not accepted.</p><a class="btn" href="#booking">Request Your Appointment</a></div></section>
 </main>
 <footer><div class="wrap foot"><strong>HeFeMi</strong><span>Private in-hotel massage therapy</span><span>Available all seven days · By appointment</span><span>© <span id="year"></span> HeFeMi</span></div></footer>
 <script>
 const dateInput=document.getElementById('date');
-const today=new Date(); const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
-dateInput.min=localToday; document.getElementById('year').textContent=new Date().getFullYear();
-const durationSelect=document.getElementById('duration');
+const today=new Date();
+const localToday=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+dateInput.min=localToday;
+document.getElementById('year').textContent=new Date().getFullYear();
+
 const priceDisplay=document.getElementById('priceDisplay');
-durationSelect.addEventListener('change',()=>{priceDisplay.textContent='₹'+durationSelect.options[durationSelect.selectedIndex].dataset.price;});
+const slotRadios=[...document.querySelectorAll('input[name="slot"]')];
+const availabilityTitle=document.getElementById('availabilityDateTitle');
+const availabilityState=document.getElementById('availabilityState');
+
+/*
+  BACKEND CONNECTION:
+  Set this to your deployed Supabase Edge Function/API endpoint.
+  Expected JSON: { bookedSlots: ["10 AM – 11 AM", ...] }
+  The endpoint must return confirmed bookings AND active payment holds,
+  excluding expired/cancelled bookings. Server must enforce conflicts atomically.
+*/
+const AVAILABILITY_API_URL = "";
+
+function clearSlotSelection(){
+  slotRadios.forEach(r=>{r.checked=false;r.closest('.slot').classList.remove('selected-slot')});
+  priceDisplay.textContent='Select an available slot to see price';
+}
+async function loadAvailability(){
+  const day=dateInput.value;
+  clearSlotSelection();
+  slotRadios.forEach(r=>{
+    const card=r.closest('.slot');
+    card.classList.remove('booked','available','selected-slot');
+    r.disabled=true;
+    card.querySelector('label').setAttribute('aria-disabled','true');
+  });
+  if(!day){availabilityTitle.textContent='Select a date to view slots';availabilityState.textContent='Date required';return;}
+  availabilityTitle.textContent=new Date(day+'T12:00:00').toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  if(!AVAILABILITY_API_URL){
+    availabilityState.textContent='Backend connection pending';
+    // Design preview: no slot is falsely labelled as live available/booked.
+    slotRadios.forEach(r=>{r.disabled=false;r.closest('.slot').classList.add('available');r.closest('.slot').querySelector('label').removeAttribute('aria-disabled')});
+    return;
+  }
+  availabilityState.textContent='Checking live slots…';
+  try{
+    const res=await fetch(AVAILABILITY_API_URL+'?date='+encodeURIComponent(day),{cache:'no-store'});
+    if(!res.ok) throw new Error('Availability request failed');
+    const result=await res.json();
+    const booked=new Set(result.bookedSlots||[]);
+    slotRadios.forEach(r=>{
+      const card=r.closest('.slot');
+      const label=card.querySelector('label');
+      if(booked.has(r.value)){
+        card.classList.add('booked');r.disabled=true;label.setAttribute('aria-disabled','true');
+      }else{
+        card.classList.add('available');r.disabled=false;label.removeAttribute('aria-disabled');
+      }
+    });
+    availabilityState.textContent='Live availability updated';
+  }catch(err){
+    availabilityState.textContent='Could not load live availability';
+    slotRadios.forEach(r=>{r.disabled=true;r.closest('.slot').classList.remove('available')});
+  }
+}
+dateInput.addEventListener('change',loadAvailability);
+slotRadios.forEach(r=>r.addEventListener('change',()=>{
+  slotRadios.forEach(x=>x.closest('.slot').classList.remove('selected-slot'));
+  r.closest('.slot').classList.add('selected-slot');
+  priceDisplay.textContent='₹'+Number(r.dataset.price).toLocaleString('en-IN')+' · '+r.dataset.hours+' hour'+(r.dataset.hours==='1'?'':'s');
+}));
+
 document.getElementById('bookingForm').addEventListener('submit',function(e){
  e.preventDefault();
  const data=new FormData(this);
+ const selected=document.querySelector('input[name="slot"]:checked');
+ if(!selected || selected.disabled){alert('Please choose an available appointment slot.');return;}
  const details=[
-  'HeFeMi booking request',
-  'Name: '+data.get('guest'),
-  'Phone: '+data.get('phone'),
-  'Hotel: '+data.get('hotel'),
-  'Room: '+data.get('room'),
-  'Date: '+data.get('date'),
-  'Duration: '+data.get('duration'),\n  'Price: ₹'+document.querySelector('#duration option:checked').dataset.price,\n  'Preferred time: '+data.get('slot'),
-  'Notes: '+(data.get('notes')||'None')
- ].join('\\n');
- const message=details;
- const whatsappUrl='https://wa.me/918287761407?text='+encodeURIComponent(message);
+  'HeFeMi booking request','Name: '+data.get('guest'),'Gender: '+data.get('gender'),
+  'Phone: '+data.get('phone'),'Hotel: '+data.get('hotel'),'Room: '+data.get('room'),
+  'Delhi locality: '+data.get('location'),'Date: '+data.get('date'),'Slot: '+selected.value,
+  'Price: ₹'+selected.dataset.price,'Notes: '+(data.get('notes')||'None')
+ ].join('\n');
+ const url='https://wa.me/918287761407?text='+encodeURIComponent(details);
  const notice=document.getElementById('notice');
- notice.textContent='Opening WhatsApp with your booking request. Please press Send in WhatsApp to submit it. Your appointment is confirmed only after the team replies.';
+ notice.textContent='Opening WhatsApp with your booking request. Please press Send. A slot is confirmed only after the live backend checks availability and verifies payment.';
  notice.classList.add('show');
- window.open(whatsappUrl,'_blank','noopener');
+ window.open(url,'_blank','noopener');
 });
 </script>
 </body></html>
