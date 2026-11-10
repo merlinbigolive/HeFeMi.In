@@ -1,34 +1,33 @@
-HeFeMi website update
-======================
+HeFeMi — Supabase account integration
 
-ZIP contents are placed directly in the ZIP root.
+Files
+- index.html: updated HeFeMi website with Supabase Email + Password signup/login.
 
-- index.html: responsive website, supplied hero video, Delhi-only locality selector,
-  gender and hotel booking fields, all nine agreed slots and pricing.
-- hefemi-hero.mp4: supplied hero background video (autoplay, muted, loop, playsinline).
-- supabase-bookings-starter.sql: starter database schema and anti-double-booking
-  transaction requirements for the Supabase backend.
+Before testing on your live website
+1. Upload index.html to your HTTPS website hosting and replace the previous index.html.
+2. In Supabase Dashboard, open Authentication > URL Configuration.
+3. Set Site URL to your website's main HTTPS URL.
+4. Add your website URL (and any preview/deployment URL you use) to Redirect URLs.
+5. Keep Email provider enabled and email confirmation enabled.
 
-IMPORTANT
----------
-The page currently opens a pre-filled WhatsApp booking request to +91 82877 61407.
-It does NOT yet guarantee live slot locking or payment confirmation. To prevent
-anyone from booking an already-booked slot, deploy a server-side booking endpoint
-that atomically checks date/time overlaps with the 40-minute travel buffer, creates
-a temporary payment hold, and confirms only after Razorpay server-side verification.
-The SQL file documents the required database structure and transaction behavior.
+What is connected
+- Client signup with adult-age validation (18+), email/password and profile creation through the database trigger.
+- Therapist signup with email/password and automatic pending therapist profile.
+- Client and therapist email/password login, role checks, logout.
+- Client dashboard reads profile, bookings and transactions subject to your existing RLS policies.
+- Therapist page shows approval status.
 
-Service area currently listed: selected Delhi localities only:
-Vasant Vihar, Defence Colony, Greater Kailash I & II, Hauz Khas, Panchsheel Park,
-Shanti Niketan, Jor Bagh, Chanakyapuri, Saket and Golf Links.
-These are the proposed service localities and can be edited before launch.
+Still not connected / limitations
+- Selfie camera is preview-only. It is not uploaded to Supabase Storage and does not verify identity.
+- Booking requests still open WhatsApp. They are not inserted into the bookings table by this form.
+- Live slot availability and payment processing are not connected.
+- Therapist approval must be managed separately in Supabase; there is no admin approval panel.
+- The original HTML references hefemi-hero.mp4. That video was not included with the uploaded source file, so add it beside index.html if you have it.
 
-SLOT AVAILABILITY UI
---------------------
-The booking form now shows an availability panel with Available / Not Available
-visual states. When AVAILABILITY_API_URL in index.html is set to the deployed
-backend endpoint, it fetches bookedSlots for the selected date and disables
-booked slots. Until the endpoint is connected, the page is a design preview:
-it cannot know other customers' bookings and must not be used to accept live
-confirmed bookings. The backend must atomically enforce slot conflicts and the
-40-minute buffer when creating a booking.
+Security
+- The HTML contains only the Supabase project URL and publishable key. Do not put a service_role or secret key in browser code.
+
+Validation performed here
+- Inline JavaScript syntax check passed.
+- Basic HTML parsing passed.
+- A live signup/login test has not been performed from your hosted domain.

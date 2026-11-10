@@ -75,16 +75,17 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:1
 </style>
 </head>
 <body>
-<header><div class="wrap nav"><a class="brand" href="#">HΞFΞMᎥ</a><nav class="navlinks"><a href="#experience">Experience</a><a href="#booking">Book a Session</a><a href="#hotel">Hotel Guests</a></nav><div class="nav-right"><a class="navcta" href="#booking">Reserve a Slot</a><button class="menu-toggle" id="menuToggle" aria-label="Open account menu" aria-expanded="false">☰</button><div class="menu-panel" id="menuPanel" hidden><button data-open="clientLogin">Client Login</button><button data-open="staffLogin">Therapist Login</button></div></div></div></header>
+<header><div class="wrap nav"><a class="brand" href="#">HΞFΞMᎥ</a><nav class="navlinks"><a href="#experience">Experience</a><a href="#booking">Book a Session</a><a href="#hotel">Hotel Guests</a></nav><div class="nav-right"><a class="navcta" href="#booking">Reserve a Slot</a><button class="menu-toggle" id="menuToggle" aria-label="Open account menu" aria-expanded="false">☰</button><div class="menu-panel" id="menuPanel" hidden><button data-open="clientSignup">Client Registration</button><button data-open="clientLogin">Client Login</button><button data-open="staffSignup">Therapist Registration</button><button data-open="staffLogin">Therapist Login</button><button id="menuDashboard" hidden>My Dashboard</button><button id="menuLogout" hidden>Logout</button></div></div></div></header>
 
 <div class="account-modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle">
  <div class="account-card"><button class="account-close" id="accountClose" aria-label="Close">×</button>
   <div class="eyebrow">HeFeMi secure accounts</div><h2 id="accountTitle">Create your account</h2><p class="intro" id="accountIntro">Choose your account type and complete verification.</p>
-  <div id="staffSignup" hidden><form id="staffSignupForm"><div class="two"><label>Full name<input name="name" required autocomplete="name"></label><label>Gender<select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select></label></div><label>Contact number<input name="phone" type="tel" required autocomplete="tel" placeholder="+91"></label><label>Live selfie verification</label><div class="camera-box"><video id="staffVideo" autoplay muted playsinline hidden></video><img id="staffPreview" alt="Captured therapist selfie" hidden><div class="camera-actions"><button type="button" data-camera="staff">Open live camera</button><button type="button" data-capture="staff">Capture selfie</button></div><p class="privacy-note">Camera access requires your permission. The captured image is only previewed here; secure upload and identity verification require the connected backend.</p></div><button class="btn" type="submit">Submit therapist registration</button><div class="account-notice" id="staffSignupNotice"></div></form></div>
-  <div id="staffLogin" hidden><form id="staffLoginForm"><label>Contact number<input name="phone" type="tel" required placeholder="Registered mobile number"></label><label>One-time password (OTP)<input name="otp" inputmode="numeric" placeholder="Enter OTP when enabled"></label><button class="btn" type="submit">Continue therapist login</button><div class="account-notice" id="staffLoginNotice"></div></form><p class="privacy-note" style="text-align:center;margin-top:18px">New therapist? <button type="button" class="auth-switch" data-open="staffSignup">Create account</button></p></div>
-  <div id="clientSignup" hidden><form id="clientSignupForm"><div class="two"><label>Full name<input name="name" required autocomplete="name"></label><label>Age<input name="age" type="number" min="18" max="110" required></label></div><div class="two"><label>Gender<select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option></select></label><label>Phone number<input name="phone" type="tel" required autocomplete="tel"></label></div><label>Email ID<input name="email" type="email" required autocomplete="email"></label><label>Live selfie verification</label><div class="camera-box"><video id="clientVideo" autoplay muted playsinline hidden></video><img id="clientPreview" alt="Captured client selfie" hidden><div class="camera-actions"><button type="button" data-camera="client">Open live camera</button><button type="button" data-capture="client">Capture selfie</button></div><p class="privacy-note">Only adults aged 18+ can register. Camera access requires your permission. Secure selfie storage and identity verification must be configured on the backend.</p></div><button class="btn" type="submit">Create client account</button><div class="account-notice" id="clientSignupNotice"></div></form></div>
-  <div id="clientLogin" hidden><form id="clientLoginForm"><label>Email ID or phone number<input name="identity" required autocomplete="username"></label><label>Password / OTP<input name="credential" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">Login to client account</button><div class="account-notice" id="clientLoginNotice"></div></form><p class="privacy-note" style="text-align:center;margin-top:18px">New client? <button type="button" class="auth-switch" data-open="clientSignup">Create account</button></p></div>
-  <div id="clientDashboard" hidden><div class="dashboard-box"><h3>My profile</h3><p>Full name, age, gender, phone number and email will appear here after secure login.</p></div><div class="dashboard-box"><h3>My booking slots</h3><p>Your upcoming and past booking dates, time slots, duration and booking status will appear here.</p></div><div class="dashboard-box"><h3>Transaction history</h3><p>Payments, transaction IDs, amounts and payment status will appear here.</p></div><p class="privacy-note">Dashboard data is not connected yet. Secure authentication and database integration are required to show real personal records.</p></div>
+  <div id="staffSignup" hidden><form id="staffSignupForm"><div class="two"><label>Full name<input name="name" required autocomplete="name"></label><label>Gender<select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select></label></div><label>Email ID<input name="email" type="email" required autocomplete="email"></label><div class="two"><label>Password<input name="password" type="password" minlength="8" required autocomplete="new-password"></label><label>Confirm password<input name="confirmPassword" type="password" minlength="8" required autocomplete="new-password"></label></div><label>Contact number<input name="phone" type="tel" required autocomplete="tel" placeholder="+91"></label><label>Selfie preview (optional)</label><div class="camera-box"><video id="staffVideo" autoplay muted playsinline hidden></video><img id="staffPreview" alt="Captured therapist selfie" hidden><div class="camera-actions"><button type="button" data-camera="staff">Open live camera</button><button type="button" data-capture="staff">Capture selfie</button></div><p class="privacy-note">Camera access requires your permission. This selfie is only a local preview and is not uploaded or used for identity verification.</p></div><button class="btn" type="submit">Create therapist account</button><div class="account-notice" id="staffSignupNotice"></div></form></div>
+  <div id="staffLogin" hidden><form id="staffLoginForm"><label>Email ID<input name="email" type="email" required autocomplete="username"></label><label>Password<input name="password" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">Login to therapist account</button><div class="account-notice" id="staffLoginNotice"></div></form><p class="privacy-note" style="text-align:center;margin-top:18px">New therapist? <button type="button" class="auth-switch" data-open="staffSignup">Create account</button></p></div>
+  <div id="clientSignup" hidden><form id="clientSignupForm"><div class="two"><label>Full name<input name="name" required autocomplete="name"></label><label>Age<input name="age" type="number" min="18" max="110" required></label></div><div class="two"><label>Gender<select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option></select></label><label>Phone number<input name="phone" type="tel" required autocomplete="tel"></label></div><label>Email ID<input name="email" type="email" required autocomplete="email"></label><div class="two"><label>Password<input name="password" type="password" minlength="8" required autocomplete="new-password"></label><label>Confirm password<input name="confirmPassword" type="password" minlength="8" required autocomplete="new-password"></label></div><label>Selfie preview (optional)</label><div class="camera-box"><video id="clientVideo" autoplay muted playsinline hidden></video><img id="clientPreview" alt="Captured client selfie" hidden><div class="camera-actions"><button type="button" data-camera="client">Open live camera</button><button type="button" data-capture="client">Capture selfie</button></div><p class="privacy-note">Only adults aged 18+ can register. Camera access requires your permission. This selfie is only a local preview and is not uploaded or used for identity verification.</p></div><button class="btn" type="submit">Create client account</button><div class="account-notice" id="clientSignupNotice"></div></form></div>
+  <div id="clientLogin" hidden><form id="clientLoginForm"><label>Email ID<input name="email" type="email" required autocomplete="username"></label><label>Password<input name="password" type="password" required autocomplete="current-password"></label><button class="btn" type="submit">Login to client account</button><div class="account-notice" id="clientLoginNotice"></div></form><p class="privacy-note" style="text-align:center;margin-top:18px">New client? <button type="button" class="auth-switch" data-open="clientSignup">Create account</button></p></div>
+  <div id="clientDashboard" hidden><div class="dashboard-box"><h3>My profile</h3><p id="clientProfileDetails">Loading your profile…</p></div><div class="dashboard-box"><h3>My booking slots</h3><div id="clientBookings">Loading bookings…</div></div><div class="dashboard-box"><h3>Transaction history</h3><div id="clientTransactions">Loading transactions…</div></div><button class="btn" type="button" id="accountLogout">Logout</button><p class="privacy-note">Booking requests are currently sent through WhatsApp. Online booking creation and payments are not connected yet.</p></div>
+  <div id="staffDashboard" hidden><div class="dashboard-box"><h3>Therapist account</h3><p id="staffApprovalDetails">Checking approval status…</p></div><button class="btn" type="button" id="staffLogout">Logout</button><p class="privacy-note">Therapist approval is managed separately in the Supabase database. This page does not provide an admin approval panel.</p></div>
  </div>
 </div>
 
@@ -155,6 +156,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:1
 <section class="hotel" id="hotel"><div class="wrap"><div class="eyebrow">An exclusive hotel guest service</div><h2 style="font:clamp(36px,5vw,54px) Georgia,serif;font-weight:400;margin:0">Your room. Your pause.</h2><p>HeFeMi serves hotel guests only in selected premium Delhi localities. Bookings from Noida and other Delhi localities outside the listed service areas are not accepted.</p><a class="btn" href="#booking">Request Your Appointment</a></div></section>
 </main>
 <footer><div class="wrap foot"><strong>HeFeMi</strong><span>Private in-hotel massage therapy</span><span>Available all seven days · By appointment</span><span>© <span id="year"></span> HeFeMi</span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const dateInput=document.getElementById('date');
 const today=new Date();
@@ -258,22 +260,119 @@ document.getElementById('bookingForm').addEventListener('submit',function(e){
  window.open(url,'_blank','noopener');
 });
 
-// Account menu and account-flow interface. Authentication/data require a secure backend.
+// Supabase authentication and profile integration.
+const SUPABASE_URL = 'https://ppxqjppvrpjucshghezv.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_0y-N2oa8uZNRXrzZWUu5tg_onz5M2zX';
+const supabaseClient = window.supabase?.createClient
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
+  : null;
+
 const menuToggle=document.getElementById('menuToggle'),menuPanel=document.getElementById('menuPanel'),accountModal=document.getElementById('accountModal');
-const accountViews=['staffSignup','staffLogin','clientSignup','clientLogin','clientDashboard'];
-function openAccount(view){accountViews.forEach(id=>document.getElementById(id).hidden=id!==view);menuPanel.hidden=true;menuToggle.setAttribute('aria-expanded','false');accountModal.classList.add('open');const titles={staffSignup:['Therapist registration','Create a therapist profile with a live selfie.'],staffLogin:['Therapist login','Sign in using your registered contact number.'],clientSignup:['Client registration','Create a client account and complete selfie verification.'],clientLogin:['Client login','Access your bookings and transaction history.'],clientDashboard:['Client dashboard','Your account overview.']};document.getElementById('accountTitle').textContent=titles[view][0];document.getElementById('accountIntro').textContent=titles[view][1];}
+const accountViews=['staffSignup','staffLogin','clientSignup','clientLogin','clientDashboard','staffDashboard'];
+function openAccount(view){accountViews.forEach(id=>document.getElementById(id).hidden=id!==view);menuPanel.hidden=true;menuToggle.setAttribute('aria-expanded','false');accountModal.classList.add('open');const titles={staffSignup:['Therapist registration','Create an account using your email address.'],staffLogin:['Therapist login','Sign in using your registered email and password.'],clientSignup:['Client registration','Create an account. Registration is for adults aged 18+.'],clientLogin:['Client login','Access your account using email and password.'],clientDashboard:['Client dashboard','Your account overview.'],staffDashboard:['Therapist account','Your registration and approval status.']};document.getElementById('accountTitle').textContent=titles[view][0];document.getElementById('accountIntro').textContent=titles[view][1];}
 menuToggle.addEventListener('click',()=>{menuPanel.hidden=!menuPanel.hidden;menuToggle.setAttribute('aria-expanded',String(!menuPanel.hidden));});
-document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openAccount(b.dataset.open))); 
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openAccount(b.dataset.open)));
 document.getElementById('accountClose').addEventListener('click',()=>{accountModal.classList.remove('open');stopCameras();});
 accountModal.addEventListener('click',e=>{if(e.target===accountModal){accountModal.classList.remove('open');stopCameras();}});
+
 const cameraStreams={};
 async function startCamera(role){try{stopCamera(role);const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'},audio:false});cameraStreams[role]=stream;const video=document.getElementById(role+'Video');video.srcObject=stream;video.hidden=false;document.getElementById(role+'Preview').hidden=true;}catch(e){showAccountNotice(role+'SignupNotice','Camera could not be opened. Allow camera permission and use HTTPS.');}}
 function stopCamera(role){if(cameraStreams[role]){cameraStreams[role].getTracks().forEach(t=>t.stop());delete cameraStreams[role];}}
 function stopCameras(){['staff','client'].forEach(stopCamera);}
 document.querySelectorAll('[data-camera]').forEach(b=>b.addEventListener('click',()=>startCamera(b.dataset.camera)));
-document.querySelectorAll('[data-capture]').forEach(b=>b.addEventListener('click',()=>{const role=b.dataset.capture,video=document.getElementById(role+'Video');if(!video.srcObject||!video.videoWidth){showAccountNotice(role+'SignupNotice','Open the live camera first, then capture your selfie.');return;}const canvas=document.createElement('canvas');canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);const preview=document.getElementById(role+'Preview');preview.src=canvas.toDataURL('image/jpeg',.85);preview.hidden=false;stopCamera(role);video.hidden=true;showAccountNotice(role+'SignupNotice','Selfie captured in this browser preview. Secure submission is pending backend setup.');}));
+document.querySelectorAll('[data-capture]').forEach(b=>b.addEventListener('click',()=>{const role=b.dataset.capture,video=document.getElementById(role+'Video');if(!video.srcObject||!video.videoWidth){showAccountNotice(role+'SignupNotice','Open the live camera first, then capture your selfie.');return;}const canvas=document.createElement('canvas');canvas.width=video.videoWidth;canvas.height=video.videoHeight;canvas.getContext('2d').drawImage(video,0,0);const preview=document.getElementById(role+'Preview');preview.src=canvas.toDataURL('image/jpeg',.85);preview.hidden=false;stopCamera(role);video.hidden=true;showAccountNotice(role+'SignupNotice','Selfie preview captured on this device only. It has not been uploaded.');}));
 function showAccountNotice(id,msg){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.classList.add('show');}
-[['staffSignupForm','staffSignupNotice','Therapist registration form is ready. Connect Supabase authentication and secure image storage to create the account.'],['staffLoginForm','staffLoginNotice','Therapist login UI is ready. OTP delivery and verification require an authentication provider.'],['clientSignupForm','clientSignupNotice','Client details and selfie preview are ready. Secure account creation and verification require backend setup.'],['clientLoginForm','clientLoginNotice','Client login UI is ready. Connect authentication to load the client dashboard.']].forEach(([formId,noticeId,msg])=>document.getElementById(formId).addEventListener('submit',e=>{e.preventDefault();showAccountNotice(noticeId,msg);}));
+function clearAccountNotice(id){const el=document.getElementById(id);if(el){el.textContent='';el.classList.remove('show');}}
+function safeText(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function setAuthBusy(form,busy,label){const btn=form.querySelector('button[type="submit"]');if(btn){if(busy){btn.dataset.oldLabel=btn.textContent;btn.disabled=true;btn.textContent=label||'Please wait…';}else{btn.disabled=false;if(btn.dataset.oldLabel)btn.textContent=btn.dataset.oldLabel;}}}
+function getFormData(form){return Object.fromEntries(new FormData(form).entries());}
+function validatePasswords(data,noticeId){if(data.password!==data.confirmPassword){showAccountNotice(noticeId,'Passwords do not match. Please check both fields.');return false;}if((data.password||'').length<8){showAccountNotice(noticeId,'Password must contain at least 8 characters.');return false;}return true;}
+
+async function createAccount(formId,noticeId,role){
+ const form=document.getElementById(formId),data=getFormData(form);clearAccountNotice(noticeId);
+ if(!supabaseClient){showAccountNotice(noticeId,'Supabase library could not load. Check your internet connection and reload the page.');return;}
+ if(!validatePasswords(data,noticeId))return;
+ if(role==='client' && (!Number.isInteger(Number(data.age)) || Number(data.age)<18)){showAccountNotice(noticeId,'Client registration is available only to adults aged 18 or above.');return;}
+ setAuthBusy(form,true,'Creating account…');
+ try{
+  const {data:result,error}=await supabaseClient.auth.signUp({
+   email:data.email.trim(),password:data.password,
+   options:{emailRedirectTo:window.location.href.split('#')[0],data:{full_name:data.name.trim(),age:role==='client'?Number(data.age):null,gender:data.gender,phone:data.phone.trim(),role}}
+  });
+  if(error)throw error;
+  if(result.session){
+   showAccountNotice(noticeId,'Account created and signed in. Loading your profile…');
+   await routeSignedInUser(result.user);
+  }else{
+   showAccountNotice(noticeId,'Registration submitted. Supabase has sent a verification email. Open that email and verify your address, then return here and log in with your email and password. Your profile will be created automatically after registration.');
+   form.reset();
+  }
+ }catch(error){showAccountNotice(noticeId,error.message||'Could not create account. Please try again.');}
+ finally{setAuthBusy(form,false);}
+}
+async function loginAccount(formId,noticeId,expectedRole){
+ const form=document.getElementById(formId),data=getFormData(form);clearAccountNotice(noticeId);
+ if(!supabaseClient){showAccountNotice(noticeId,'Supabase library could not load. Check your internet connection and reload the page.');return;}
+ setAuthBusy(form,true,'Signing in…');
+ try{
+  const {data:result,error}=await supabaseClient.auth.signInWithPassword({email:data.email.trim(),password:data.password});
+  if(error)throw error;
+  const {data:profile,error:profileError}=await supabaseClient.from('profiles').select('id,full_name,age,gender,phone,role').eq('id',result.user.id).single();
+  if(profileError)throw new Error('Login succeeded, but the profile could not be loaded. '+profileError.message);
+  if(profile.role!==expectedRole){await supabaseClient.auth.signOut();throw new Error(expectedRole==='client'?'This email belongs to a therapist account. Please use Therapist Login.':'This email belongs to a client account. Please use Client Login.');}
+  await routeSignedInUser(result.user,profile);
+ }catch(error){showAccountNotice(noticeId,error.message||'Login failed. Please check your details.');}
+ finally{setAuthBusy(form,false);}
+}
+
+async function routeSignedInUser(user,knownProfile){
+ if(!supabaseClient||!user)return;
+ let profile=knownProfile;
+ if(!profile){const {data,error}=await supabaseClient.from('profiles').select('id,full_name,age,gender,phone,role').eq('id',user.id).single();if(error){showAccountNotice('clientLoginNotice','Your email may not be verified yet, or your profile is still being created. Please verify your email and try again.');return;}profile=data;}
+ if(profile.role==='therapist'){
+  const {data:tp,error}=await supabaseClient.from('therapist_profiles').select('approval_status').eq('id',user.id).maybeSingle();
+  if(error){showAccountNotice('staffLoginNotice','Signed in, but approval status could not be checked: '+error.message);return;}
+  document.getElementById('staffApprovalDetails').textContent=tp?.approval_status==='approved'?'Your therapist account is approved.':`Your therapist registration status is: ${tp?.approval_status||'pending'}. You will be able to proceed after approval.`;
+  openAccount('staffDashboard');
+ }else{
+  await loadClientDashboard(user,profile);
+  openAccount('clientDashboard');
+ }
+ refreshAccountMenu(user,profile);
+}
+async function loadClientDashboard(user,profile){
+ const email=user.email||'';
+ document.getElementById('clientProfileDetails').innerHTML=`<strong>${safeText(profile.full_name||'')}</strong><br>Age: ${safeText(profile.age??'—')} · Gender: ${safeText(profile.gender||'—')}<br>Phone: ${safeText(profile.phone||'—')}<br>Email: ${safeText(email)}`;
+ const bookingsEl=document.getElementById('clientBookings'),transactionsEl=document.getElementById('clientTransactions');
+ bookingsEl.textContent='No booking records found.';transactionsEl.textContent='No transaction records found.';
+ const {data:bookings,error:bookingError}=await supabaseClient.from('bookings').select('booking_date,start_time,duration_hours,status,service_area').eq('client_id',user.id).order('booking_date',{ascending:false}).limit(20);
+ if(bookingError){bookingsEl.textContent='Bookings could not be loaded.';}else if(bookings?.length){bookingsEl.innerHTML=bookings.map(b=>`<p>${safeText(b.booking_date)} · ${safeText(b.start_time)} · ${safeText(b.duration_hours)} hour(s) · ${safeText(b.status)} · ${safeText(b.service_area)}</p>`).join('');}
+ const {data:transactions,error:transactionError}=await supabaseClient.from('transactions').select('amount,transaction_id,payment_status').eq('client_id',user.id).limit(20);
+ if(transactionError){transactionsEl.textContent='Transactions could not be loaded.';}else if(transactions?.length){transactionsEl.innerHTML=transactions.map(t=>`<p>₹${safeText(t.amount)} · ${safeText(t.payment_status)} · Ref: ${safeText(t.transaction_id||'—')}</p>`).join('');}
+}
+async function refreshAccountMenu(user){
+ const loggedIn=!!user;
+ document.getElementById('menuDashboard').hidden=!loggedIn;
+ document.getElementById('menuLogout').hidden=!loggedIn;
+ document.querySelectorAll('#menuPanel [data-open]').forEach(b=>b.hidden=loggedIn);
+ menuToggle.setAttribute('aria-label',loggedIn?'Open account menu':'Open account menu');
+}
+async function logout(){if(!supabaseClient)return;const {error}=await supabaseClient.auth.signOut();if(error){alert('Logout failed: '+error.message);return;}accountModal.classList.remove('open');stopCameras();await refreshAccountMenu(null);menuPanel.hidden=true;}
+document.getElementById('menuDashboard').addEventListener('click',async()=>{const {data}=await supabaseClient.auth.getUser();if(data.user)await routeSignedInUser(data.user);menuPanel.hidden=true;});
+document.getElementById('menuLogout').addEventListener('click',logout);
+document.getElementById('accountLogout').addEventListener('click',logout);
+document.getElementById('staffLogout').addEventListener('click',logout);
+
+document.getElementById('staffSignupForm').addEventListener('submit',e=>{e.preventDefault();createAccount('staffSignupForm','staffSignupNotice','therapist');});
+document.getElementById('clientSignupForm').addEventListener('submit',e=>{e.preventDefault();createAccount('clientSignupForm','clientSignupNotice','client');});
+document.getElementById('staffLoginForm').addEventListener('submit',e=>{e.preventDefault();loginAccount('staffLoginForm','staffLoginNotice','therapist');});
+document.getElementById('clientLoginForm').addEventListener('submit',e=>{e.preventDefault();loginAccount('clientLoginForm','clientLoginNotice','client');});
+if(supabaseClient){
+ supabaseClient.auth.getSession().then(async({data})=>{await refreshAccountMenu(data.session?.user||null);});
+ supabaseClient.auth.onAuthStateChange((event,session)=>{refreshAccountMenu(session?.user||null);});
+}else{
+ console.error('Supabase JS did not load.');
+}
 
 </script>
 </body></html>
