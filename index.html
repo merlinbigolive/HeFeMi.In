@@ -51,6 +51,23 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:1
 .slot.selected-slot label{border-color:var(--gold);background:#d8b87920;color:var(--gold)}
 .availability-help{font-size:11px;line-height:1.6;color:#aeb6a9;margin:12px 0 0}
 
+
+/* Compact time-slot dropdown with chart inside */
+.slot-dropdown{position:relative}
+.slot-dropdown-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;text-align:left;background:#1b2820;border:1px solid #596b59;color:var(--cream);cursor:pointer;border-radius:3px}
+.slot-dropdown-trigger strong{display:block;font-size:13px;font-weight:600;letter-spacing:.02em}
+.slot-dropdown-trigger small{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+.dropdown-chevron{font-size:22px;color:var(--gold);transition:transform .2s}
+.slot-dropdown-trigger[aria-expanded="true"] .dropdown-chevron{transform:rotate(180deg)}
+.slot-chart{margin-top:9px;padding:10px;border:1px solid var(--line);background:#0c1711}
+.slot-chart[hidden]{display:none}
+.slot-chart .availability-panel{margin:0;padding:8px;border:0;background:transparent}
+.slot-chart .availability-top strong{font-size:18px}
+.slot-chart .slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.slot-chart .slot label{text-align:center;min-height:62px;padding:10px 5px;font-size:11px}
+.slot-chart .slot small{font-size:10px}
+@media(max-width:560px){.slot-chart .slots{grid-template-columns:repeat(2,minmax(0,1fr))}.slot-chart{padding:7px}.slot-chart .availability-top strong{font-size:16px}}
+
 </style>
 </head>
 <body>
@@ -85,17 +102,21 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:1
 <div class="field"><label for="room">Room number</label><input id="room" name="room" placeholder="Room number" required></div>
 <div class="field"><label for="location">Hotel locality (Delhi only)</label><select id="location" name="location" required>
 <option value="">Choose Delhi locality</option>
-<option>Vasant Vihar</option><option>Defence Colony</option><option>Greater Kailash I</option><option>Greater Kailash II</option><option>Hauz Khas</option><option>Panchsheel Park</option><option>Shanti Niketan</option><option>Jor Bagh</option><option>Chanakyapuri</option><option>Saket</option><option>Golf Links</option>
+<option>Connaught Place</option><option>Karol Bagh</option><option>Paharganj</option><option>Laxmi Nagar</option><option>Preet Vihar</option><option>Nirman Vihar</option><option>Karkardooma</option>
 </select></div>
 </div>
 <div class="field"><label for="date">Booking date</label><input id="date" name="date" type="date" required></div>
-<div class="field"><label>Choose an appointment slot</label>
-<div class="availability-panel">
- <div class="availability-top"><strong id="availabilityDateTitle">Select a date to view slots</strong><span id="availabilityState" class="availability-legend">Availability status</span></div>
- <div class="availability-legend"><span><i class="legend-dot"></i> Available</span><span><i class="legend-dot booked"></i> Not available</span><span><i class="legend-dot selected"></i> Selected</span></div>
- <p class="availability-help">Choose a booking date. Slots already booked will appear as NOT AVAILABLE and cannot be selected. Live shared status activates when the Supabase booking backend is connected.</p>
-</div>
-<div class="slots">
+<div class="field"><label for="slotDropdown">Choose an appointment slot</label>
+<div class="slot-dropdown" id="slotDropdown">
+ <button type="button" class="slot-dropdown-trigger" id="slotDropdownTrigger" aria-expanded="false" aria-controls="slotChart">
+  <span><strong id="slotDropdownValue">Select date to view available times</strong><small id="slotDropdownHint">Choose a date first</small></span><span class="dropdown-chevron">⌄</span>
+ </button>
+ <div class="slot-chart" id="slotChart" hidden>
+  <div class="availability-panel">
+   <div class="availability-top"><strong id="availabilityDateTitle">Select a date to view slots</strong><span id="availabilityState" class="availability-legend">Availability status</span></div>
+   <div class="availability-legend"><span><i class="legend-dot"></i> Available</span><span><i class="legend-dot booked"></i> Not available</span><span><i class="legend-dot selected"></i> Selected</span></div>
+   <p class="availability-help">Booked times cannot be selected. Availability is connected to the live booking backend when configured.</p>
+   <div class="slots">
 <div class="slot"><input type="radio" id="slot1" name="slot" value="10 AM – 11 AM" data-hours="1" data-price="500" required><label for="slot1">10 AM – 11 AM<small>1 hour · ₹500</small></label></div>
 <div class="slot"><input type="radio" id="slot2" name="slot" value="10 AM – 12 PM" data-hours="2" data-price="900"><label for="slot2">10 AM – 12 PM<small>2 hours · ₹900</small></label></div>
 <div class="slot"><input type="radio" id="slot3" name="slot" value="12 PM – 1 PM" data-hours="1" data-price="500"><label for="slot3">12 PM – 1 PM<small>1 hour · ₹500</small></label></div>
@@ -105,9 +126,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#9fa99c;font-size:1
 <div class="slot"><input type="radio" id="slot7" name="slot" value="5 PM – 6 PM" data-hours="1" data-price="500"><label for="slot7">5 PM – 6 PM<small>1 hour · ₹500</small></label></div>
 <div class="slot"><input type="radio" id="slot8" name="slot" value="5 PM – 7 PM" data-hours="2" data-price="900"><label for="slot8">5 PM – 7 PM<small>2 hours · ₹900</small></label></div>
 <div class="slot"><input type="radio" id="slot9" name="slot" value="3 PM – 7 PM" data-hours="4" data-price="1800"><label for="slot9">3 PM – 7 PM<small>4 hours · ₹1,800</small></label></div>
-</div></div>
+</div>
+  </div>
+ </div>
+</div>
 <div class="field"><label>Session price</label><div id="priceDisplay" style="border:1px solid #8b9c7d;background:#253329;padding:14px;color:#e8d5aa;font-size:18px">Select a slot to see price</div></div>
-<div class="field"><label for="notes">Anything we should know? (optional)</label><textarea id="notes" name="notes" rows="3" placeholder="Optional notes"></textarea></div>
 <label class="check"><input type="checkbox" required><span>I confirm that I am a registered guest at the hotel provided. I understand that appointments are available only in the listed Delhi localities.</span></label>
 <button class="btn submit" type="submit">Continue to booking request</button>
 <div class="fine">A selected time is not reserved until availability is checked and the booking is confirmed. Online payment and live slot locking require the booking backend to be connected.</div>
@@ -125,8 +148,20 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
 const priceDisplay=document.getElementById('priceDisplay');
 const slotRadios=[...document.querySelectorAll('input[name="slot"]')];
+slotRadios.forEach(r=>r.disabled=true);
 const availabilityTitle=document.getElementById('availabilityDateTitle');
 const availabilityState=document.getElementById('availabilityState');
+const slotDropdownTrigger=document.getElementById('slotDropdownTrigger');
+const slotChart=document.getElementById('slotChart');
+const slotDropdownValue=document.getElementById('slotDropdownValue');
+const slotDropdownHint=document.getElementById('slotDropdownHint');
+slotDropdownTrigger.addEventListener('click',()=>{
+ if(!dateInput.value){dateInput.reportValidity();return;}
+ const opening=slotChart.hidden;
+ slotChart.hidden=!opening;
+ slotDropdownTrigger.setAttribute('aria-expanded',String(opening));
+});
+
 
 /*
   BACKEND CONNECTION:
@@ -139,7 +174,7 @@ const AVAILABILITY_API_URL = "";
 
 function clearSlotSelection(){
   slotRadios.forEach(r=>{r.checked=false;r.closest('.slot').classList.remove('selected-slot')});
-  priceDisplay.textContent='Select an available slot to see price';
+  priceDisplay.textContent='Select an available slot to see price';slotDropdownValue.textContent='Choose an available time';slotDropdownHint.textContent='Select a slot from the time chart';
 }
 async function loadAvailability(){
   const day=dateInput.value;
@@ -153,7 +188,7 @@ async function loadAvailability(){
   if(!day){availabilityTitle.textContent='Select a date to view slots';availabilityState.textContent='Date required';return;}
   availabilityTitle.textContent=new Date(day+'T12:00:00').toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   if(!AVAILABILITY_API_URL){
-    availabilityState.textContent='Backend connection pending';
+    availabilityState.textContent='Preview · backend pending';slotDropdownHint.textContent='Select from the chart below';
     // Design preview: no slot is falsely labelled as live available/booked.
     slotRadios.forEach(r=>{r.disabled=false;r.closest('.slot').classList.add('available');r.closest('.slot').querySelector('label').removeAttribute('aria-disabled')});
     return;
@@ -173,17 +208,20 @@ async function loadAvailability(){
         card.classList.add('available');r.disabled=false;label.removeAttribute('aria-disabled');
       }
     });
-    availabilityState.textContent='Live availability updated';
+    availabilityState.textContent='Live availability updated';slotDropdownHint.textContent='Select an available time from the chart';
   }catch(err){
     availabilityState.textContent='Could not load live availability';
     slotRadios.forEach(r=>{r.disabled=true;r.closest('.slot').classList.remove('available')});
   }
 }
-dateInput.addEventListener('change',loadAvailability);
+dateInput.addEventListener('change',()=>{slotChart.hidden=true;slotDropdownTrigger.setAttribute('aria-expanded','false');slotDropdownValue.textContent='Choose an available time';slotDropdownHint.textContent='Checking slots for selected date…';loadAvailability();});
 slotRadios.forEach(r=>r.addEventListener('change',()=>{
   slotRadios.forEach(x=>x.closest('.slot').classList.remove('selected-slot'));
   r.closest('.slot').classList.add('selected-slot');
   priceDisplay.textContent='₹'+Number(r.dataset.price).toLocaleString('en-IN')+' · '+r.dataset.hours+' hour'+(r.dataset.hours==='1'?'':'s');
+  slotDropdownValue.textContent=r.value;
+  slotDropdownHint.textContent='₹'+Number(r.dataset.price).toLocaleString('en-IN')+' · '+r.dataset.hours+' hour'+(r.dataset.hours==='1'?'':'s');
+  slotChart.hidden=true;slotDropdownTrigger.setAttribute('aria-expanded','false');
 }));
 
 document.getElementById('bookingForm').addEventListener('submit',function(e){
@@ -195,7 +233,7 @@ document.getElementById('bookingForm').addEventListener('submit',function(e){
   'HeFeMi booking request','Name: '+data.get('guest'),'Gender: '+data.get('gender'),
   'Phone: '+data.get('phone'),'Hotel: '+data.get('hotel'),'Room: '+data.get('room'),
   'Delhi locality: '+data.get('location'),'Date: '+data.get('date'),'Slot: '+selected.value,
-  'Price: ₹'+selected.dataset.price,'Notes: '+(data.get('notes')||'None')
+  'Price: ₹'+selected.dataset.price
  ].join('\n');
  const url='https://wa.me/918287761407?text='+encodeURIComponent(details);
  const notice=document.getElementById('notice');
